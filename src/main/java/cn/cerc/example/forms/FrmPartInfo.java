@@ -27,7 +27,6 @@ public class FrmPartInfo extends AbstractForm {
             jspPage.setMessage(svr.getMessage());
             return jspPage;
         }
-
         DataSet dataSet = svr.getDataOut();
 
         jspPage.add("dataSet", dataSet);
