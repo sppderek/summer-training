@@ -18,6 +18,7 @@ public class SvrPartInfo extends CustomService {
         Record headIn = getDataIn().getHead();
         BuildQuery f = new BuildQuery(this);
         f.add("select * from %s where corpNo_='%s'", AppDB.Table_PartInfo, AppDB.DerekCorp);
+
         if (headIn.hasValue("searchText_")) {
             f.byLink(new String[] { "code_", "name_" }, headIn.getString("searchText_"));
         }
