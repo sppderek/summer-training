@@ -1,5 +1,8 @@
 package cn.cerc.example.service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import cn.cerc.example.common.AppDB;
 import cn.cerc.jbean.core.CustomService;
 import cn.cerc.jbean.core.DataValidateException;
@@ -8,6 +11,8 @@ import cn.cerc.jdb.mysql.BuildQuery;
 import cn.cerc.jdb.mysql.SqlQuery;
 
 public class SvrPartInfo extends CustomService {
+
+    private static final Logger log = LoggerFactory.getLogger(SvrPartInfo.class);
 
     public boolean search() {
         Record headIn = getDataIn().getHead();
@@ -19,6 +24,7 @@ public class SvrPartInfo extends CustomService {
         }
 
         getDataOut().appendDataSet(f.open());
+        log.info("search Sql {}", f.getCommandText());
         return true;
     }
 
